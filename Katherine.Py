@@ -1,6 +1,6 @@
 file = open('backup.txt','r')
 
-words = ["303 ", "304"]
+words = ["303 ", "304 ", "302"]
 count=0
 lines=file.readlines()
 for line in lines:
