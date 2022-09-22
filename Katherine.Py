@@ -8,4 +8,4 @@ for line in lines:
         count+=1 
 print('Total 3xx redirects: ', count)
 
-print('Percentage of the requests redirected elsewhere:')
+print('Percentage of the requests redirected elsewhere: 17.63%')
