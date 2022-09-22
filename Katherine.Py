@@ -6,4 +6,4 @@ lines=file.readlines()
 for line in lines:
     if any(word in line for word in words):
         count+=1 
-print('Total requests that have been made in the past 6 months: ', count)
+print('Total 3xx redirects: ', count)
