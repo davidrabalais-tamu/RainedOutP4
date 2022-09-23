@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 FILE_NAME = './log.txt'
 # How many requests were made on a week-by-week basis? Per month?
@@ -47,16 +47,30 @@ def months():
 
 def weeks():
     fh = open(FILE_NAME)
+    i = 0
+    weeks = []
     for line in open(FILE_NAME):
-        if "GET" in line:
-            print(line[(line.index("[")+1):(line.index(":"))])
-            date_in_line = line[(line.index("[")+1):(line.index(":"))]
-            day = int(date_in_line[0:2])
-            month = date_in_line[3:6]
-            year = int(date_in_line[7:11])
-            #print(day, month, year)
-            x = datetime.datetime(year, month, day)
-            print(x)
+        while i < 5:
+            i += 1
+            if "GET" in line:
+                #print(line[(line.index("[")+1):(line.index(":"))])
+                # Extract the date from the request line
+                x = line[(line.index("[")+1):(line.index(":"))]
+                # Format the date in a way we can use it for counting
+                conv = datetime.strptime(x, '%d/%b/%Y')
+                print(x)
+                # We will use weekday number to add up requests for a week.
+                print(conv.weekday())
+                week.append
+
+                # date_in_line = line[(line.index("[")+1):(line.index(":"))]
+                # day = int(date_in_line[0:2])
+                # month = date_in_line[3:6]
+                # year = int(date_in_line[7:11])
+                # #print(day, month, year)
+                # x = datetime.datetime(year, month, day)
+                # print(x)
+            
     fh.close()      # close the file when you're finished with it
 
 weeks()
