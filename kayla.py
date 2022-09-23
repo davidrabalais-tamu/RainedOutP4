@@ -16,7 +16,7 @@ for year in y_array:
             for line in open(FILE_NAME):
                 if ("GET" in line) and (days+"/"+months+"/"+year+":" in line):
                     x=x+1
+            #if x > 0:       
             print ("There were ", x, "requests on", days, months, year)
-
 
 fh.close()      # close the file when you're finished with it
