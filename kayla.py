@@ -1,26 +1,26 @@
-from datetime import datetime
+# from datetime import datetime
 
-FILE_NAME = './log.txt'
+# FILE_NAME = './log.txt'
 
-#Use open() to get a filehandle that can access the file
-fh = open(FILE_NAME)
+# #Use open() to get a filehandle that can access the file
+# fh = open(FILE_NAME)
 
-#Katherine updated array dates
-mon_array = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-y_array = ["1994","1995"]
-day_array = ["01", "02","03", "04", "05", "06", "07", "08", "09","10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"]
+# #Katherine updated array dates
+# mon_array = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+# y_array = ["1994","1995"]
+# day_array = ["01", "02","03", "04", "05", "06", "07", "08", "09","10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"]
 
-#Alternately, skip the assignment to the filehandle altogether:
-for year in y_array: 
-    for months in mon_array:
-        for days in day_array:
-            requs=0
-            for line in open(FILE_NAME):
-                if ("GET" in line) and (days+"/"+months+"/"+year+":" in line):
-                    requs=requs+1
-            print ("There were ", requs, "requests on", days, months, year)
+# #Alternately, skip the assignment to the filehandle altogether:
+# for year in y_array: 
+#     for months in mon_array:
+#         for days in day_array:
+#             requs=0
+#             for line in open(FILE_NAME):
+#                 if ("GET" in line) and (days+"/"+months+"/"+year+":" in line):
+#                     requs=requs+1
+#             print ("There were ", requs, "requests on", days, months, year)
 
-fh.close()      # close the file when you're finished with it
+# fh.close()      # close the file when you're finished with it
 
 # import re
 # d = {}
@@ -79,3 +79,44 @@ fh.close()      # close the file when you're finished with it
 #   else:
 #     # This is a new filename -- let's add it to the dictionary
 #     things[filename] = 1
+
+
+from datetime import datetime
+from datetime import timedelta
+import re
+
+FILE_NAME = './log.txt'
+
+def days():
+    fh = open(FILE_NAME)
+    i = 0
+    days = {}
+    for line in open(FILE_NAME):
+        #while i < 5:
+            #i += 1
+            #added check for year b/c there are some malformed requests
+        if ("GET" in line) and ("1994" in line or "1995" in line):
+            print(line)
+            # Extract the date from the request line
+            date = line[(line.index("[")+1):(line.index(":"))]
+            print(date)
+
+            # Format the date in a way we can use it for getting the day as a number
+            conv = datetime.strptime(date, '%d/%b/%Y')
+
+            # Create dictionary entry from extracted date data.
+            day = "Number of requests per day " + str(conv.isocalendar().day) + " of " + str(conv.isocalendar().year)
+            print(day)
+
+            # Will use day number to add up requests for a day.
+            if day in days:
+                days[day] += 1
+            else:
+                days[day] = 1
+            
+            print (days)
+            
+    fh.close()      # close the file when you're finished with it
+    for day in days:
+        print(day + ": " + str(days[day]))
+
