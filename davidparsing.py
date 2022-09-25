@@ -1,4 +1,6 @@
 from datetime import datetime
+from datetime import timedelta
+import re
 
 FILE_NAME = './log.txt'
 # How many requests were made on a week-by-week basis? Per month?
@@ -48,29 +50,34 @@ def months():
 def weeks():
     fh = open(FILE_NAME)
     i = 0
-    weeks = []
+    weeks = {}
     for line in open(FILE_NAME):
-        while i < 5:
-            i += 1
-            if "GET" in line:
-                #print(line[(line.index("[")+1):(line.index(":"))])
-                # Extract the date from the request line
-                x = line[(line.index("[")+1):(line.index(":"))]
-                # Format the date in a way we can use it for counting
-                conv = datetime.strptime(x, '%d/%b/%Y')
-                print(x)
-                # We will use weekday number to add up requests for a week.
-                print(conv.weekday())
-                week.append
+        # while i < 5:
+        #     i += 1
+            #added check for year b/c there are some malformed requests
+        if ("GET" in line) and ("1994" in line or "1995" in line):
+            #print(line)
+            # Extract the date from the request line
+            date = line[(line.index("[")+1):(line.index(":"))]
+            # print(date)
 
-                # date_in_line = line[(line.index("[")+1):(line.index(":"))]
-                # day = int(date_in_line[0:2])
-                # month = date_in_line[3:6]
-                # year = int(date_in_line[7:11])
-                # #print(day, month, year)
-                # x = datetime.datetime(year, month, day)
-                # print(x)
+            # Format the date in a way we can use it for getting the week as a number
+            conv = datetime.strptime(date, '%d/%b/%Y')
+
+            # Create dictionary entry from extracted date data.
+            week = "Number of requests in week " + str(conv.isocalendar().week) + " of " + str(conv.isocalendar().year)
+            #print(week)
+
+            # We will use week number to add up requests for a week.
+            if week in weeks:
+                weeks[week] += 1
+            else:
+                weeks[week] = 1
+            
+            #print (weeks)
             
     fh.close()      # close the file when you're finished with it
+    for week in weeks:
+        print(week + ": " + str(weeks[week]))
 
 weeks()
