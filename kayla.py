@@ -1,17 +1,20 @@
-words = ["24/Oct/1994"]
-count =0
-with open(r'backup.txt', 'r') as fp:
-    lines = fp.readlines()
-    for line in lines:
-        if any(words in line for words in words):
-            count += 1 
-print('Total requests for Oct, 24, 1994 is', count)
+import date
+d = {}
+requests=0
 
-words = ["25/Oct/1994"]
-count =0
-with open(r'backup.txt', 'r') as fp:
-    lines = fp.readlines()
-    for line in lines:
-        if any(words in line for words in words):
-            count += 1 
-print('Total requests for Oct, 24, 1994 is', count)
+with open("backup.txt") as fh:
+    Lines = fh.readlines()
+for line in Lines:
+        requests=+1
+
+date = date.split()
+date=date 
+if date[0] in d:
+    d[date[0]] += 1
+else:
+    d[date[0]] = 1
+
+print("\n")
+print("Requests per day: ")
+
+fh.close()
