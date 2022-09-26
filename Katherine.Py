@@ -45,3 +45,7 @@ for line in lines:
             codesInOct1995 += 1 
 print('3xx redirects in october 1995: ', codesInOct1995)
 
+
+
+
+
