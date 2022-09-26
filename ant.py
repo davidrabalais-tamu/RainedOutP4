@@ -6,7 +6,7 @@ def is_what_percent_of(num_a, num_b):
     return (num_a / num_b) * 100
 
 #this is for the total # of req. will help with getting percantage
-array = [" 404 ", "410"]
+array = [" 404 ", "410", "441", "419"]
 total_error= 0
 total_lines= 0
 total_requests= 0
