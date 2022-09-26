@@ -89,24 +89,21 @@ FILE_NAME = './log.txt'
 
 def days():
     fh = open(FILE_NAME)
-    i = 0
     days = {}
     for line in open(FILE_NAME):
-        #while i < 5:
-            #i += 1
             #added check for year b/c there are some malformed requests
         if ("GET" in line) and ("1994" in line or "1995" in line):
-            print(line)
+            #print(line)
             # Extract the date from the request line
             date = line[(line.index("[")+1):(line.index(":"))]
-            print(date)
+            #print(date)
 
             # Format the date in a way we can use it for getting the day as a number
             conv = datetime.strptime(date, '%d/%b/%Y')
 
             # Create dictionary entry from extracted date data.
-            day = "Number of requests per day " + str(conv.isocalendar().day) + " of " + str(conv.isocalendar().year)
-            print(day)
+            day = "Number of requests on " + str(conv) 
+            #print(day)
 
             # Will use day number to add up requests for a day.
             if day in days:
@@ -119,4 +116,6 @@ def days():
     fh.close()      # close the file when you're finished with it
     for day in days:
         print(day + ": " + str(days[day]))
+
+days()
 
