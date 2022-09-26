@@ -102,20 +102,17 @@ def days():
             conv = datetime.strptime(date, '%d/%b/%Y')
 
             # Create dictionary entry from extracted date data.
-            day = "Number of requests on " + str(conv) 
-            #print(day)
-
+            day = "Number of requests on " + conv.strftime('%d, %b %Y') 
+        
             # Will use day number to add up requests for a day.
             if day in days:
                 days[day] += 1
             else:
                 days[day] = 1
             
-            print (days)
-            
     fh.close()      # close the file when you're finished with it
     for day in days:
-        print(day + ": " + str(days[day]))
+        print(day+ ": " + str(days[day]))
 
 days()
 
