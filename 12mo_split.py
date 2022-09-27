@@ -1,21 +1,24 @@
 from os.path import exists
+from os import remove
+from os import rmdir
 
 FILE_NAME = './log.txt'
 
 def mo_split():
+    if exists("./months"):
+        remove("./months/*.txt")
+
     fh = open(FILE_NAME)
     i = 0
     mon_array = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     for line in fh:
-        while i < 5:
-            i += 1
+        # while i < 5:
+        #     i += 1
             for month in mon_array:
                 if month in line:
                     file_path = "./months/" + month + ".txt"
                     #print (file_path)
-                    file_exists = exists(file_path)
-                    #print(file_exists)
-                    if file_exists:
+                    if exists(file_path):
                         #print("Appending to file.")
                         f = open(file_path, "a")
                         f.write(line)
