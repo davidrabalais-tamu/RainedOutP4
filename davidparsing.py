@@ -43,7 +43,7 @@ def months():
             conv = datetime.strptime(date, '%d/%b/%Y')
 
             # Create dictionary entry from extracted date data.
-            month = "Number of requests in " + date[3:6] + ", " + str(conv.isocalendar().year)
+            month = "Number of requests in " + date[3:6] + ", " + str(conv.isocalendar()[0])
 
             # We will use week number to add up requests for a week.
             if month in months:
