@@ -4,7 +4,7 @@ input('Press ENTER to continue or CTRL+C to quit...')
 
 # Download the log file.
 print ('Downloading the log file...')
-#import download_log
+import download_log
 
 # How many requests were made on each day? 
 print ('\n \nKayla: Number of requests made each day.')
