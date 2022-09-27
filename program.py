@@ -7,3 +7,7 @@ print ('\n \nParsing the log file and counting number of requests')
 import parsing
 print ('\n \nFormatting Output')
 import formatting
+print ('\n \nChase least common')
+print ('\n \nLook for output in leastrequested.txt file')
+input('Press ENTER to continue or CTRL+C to quit...')
+import chaseparsing
