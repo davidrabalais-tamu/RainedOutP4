@@ -30,7 +30,7 @@ months()
 print ('\n \nAnthony Percentage of Requests not Successful')
 print ('\nLooking for output')
 input('Press ENTER to continue or CTRL+C to quit...')
-# import ant
+import ant
 
 # What percentage of the requests were redirected elsewhere (any 3xx codes)?
 print ('\n \nKatherine 3xx Errors')

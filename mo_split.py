@@ -3,6 +3,7 @@ from os import remove
 from os import rmdir
 from os import listdir
 from os import path
+from os import mkdir
 
 FILE_NAME = './log.txt'
 months_folder = "./months/"
@@ -16,6 +17,7 @@ def mo_split():
     fh = open(FILE_NAME)
     i = 0
     mon_array = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    mkdir('./months/')
     #input('Press ENTER to continue or CTRL+C to quit...')
     for line in fh:
         #print("going through logs")
