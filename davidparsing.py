@@ -27,6 +27,9 @@ FILE_NAME = './log.txt'
 # Use open() to get a filehandle that can access the file
 
 def months():
+    from datetime import datetime
+    from datetime import timedelta
+    import re
     fh = open(FILE_NAME)
     i = 0
     months = {}
@@ -53,6 +56,9 @@ def months():
 #months()
 
 def weeks():
+    from datetime import datetime
+    from datetime import timedelta
+    import re
     fh = open(FILE_NAME)
     i = 0
     weeks = {}
