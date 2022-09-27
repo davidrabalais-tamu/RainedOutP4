@@ -30,6 +30,7 @@ def months():
     from datetime import datetime
     from datetime import timedelta
     import re
+    FILE_NAME = './log.txt'
     fh = open(FILE_NAME)
     i = 0
     months = {}
@@ -59,6 +60,7 @@ def weeks():
     from datetime import datetime
     from datetime import timedelta
     import re
+    FILE_NAME = './log.txt'
     fh = open(FILE_NAME)
     i = 0
     weeks = {}
