@@ -74,7 +74,7 @@ def weeks():
             conv = datetime.strptime(date, '%d/%b/%Y')
 
             # Create dictionary entry from extracted date data.
-            week = "Number of requests in week " + str(conv.isocalendar().week) + " of " + str(conv.isocalendar().year)
+            week = "Number of requests in week " + str(conv.isocalendar()[1]) + " of " + str(conv.isocalendar().year)
 
             # We will use week number to add up requests for a week.
             if week in weeks:
@@ -85,3 +85,5 @@ def weeks():
     fh.close()      # close the file when you're finished with it
     for week in weeks:
         print(week + ": " + str(weeks[week]))
+
+weeks()
