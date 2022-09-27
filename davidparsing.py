@@ -34,7 +34,7 @@ def months():
     for year in y_array:
         for month in mon_array:
             reqs = 0
-            for line in open(FILE_NAME):
+            for line in fh:
                 if ("GET" in line) and (month+"/"+year+":" in line):
                     reqs += 1
                     
