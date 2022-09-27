@@ -11,3 +11,7 @@ print ('\n \nChase least common')
 print ('\n \nLook for output in leastrequested.txt file')
 input('Press ENTER to continue or CTRL+C to quit...')
 import chaseparsing
+print ('\n \nKayla requests files from everyday')
+print ('\n \nOutput will print on screen')
+input('Press ENTER to continue or CTRL+C to quit...')
+import kayla
