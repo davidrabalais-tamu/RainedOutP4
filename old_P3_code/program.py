@@ -7,3 +7,26 @@ print ('\n \nParsing the log file and counting number of requests')
 import parsing
 print ('\n \nFormatting Output')
 import formatting
+print ('\n \nChase least common')
+print ('\n \nLook for output in leastrequested.txt file')
+input('Press ENTER to continue or CTRL+C to quit...')
+import chaseparsing
+
+print ('\n \nKatherine 3xx Errors')
+print ('\n \nOutput will print on screen')
+input('Press ENTER to continue or CTRL+C to quit...')
+import Katherine
+
+print ('\n \nAnthony Percentage of Requests not Successful')
+print ('\n \nLooking for output')
+input('Press ENTER to continue or CTRL+C to quit...')
+import ant
+print ('\n \nKayla requests files from everyday')
+print ('\n \nOutput will print on screen')
+input('Press ENTER to continue or CTRL+C to quit...')
+import kayla
+print ('\n \nTaylor most requested')
+print ('\n \nOutput will print on screen')
+input('Press ENTER to continue or CTRL+C to quit...')
+import Most_Requested_File
+
