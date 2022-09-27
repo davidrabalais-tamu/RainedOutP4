@@ -15,3 +15,12 @@ print ('\n \nAnthony Percentage of Requests not Successful')
 print ('\n \nLooking for output')
 input('Press ENTER to continue or CTRL+C to quit...')
 import ant
+print ('\n \nKayla requests files from everyday')
+print ('\n \nOutput will print on screen')
+input('Press ENTER to continue or CTRL+C to quit...')
+import kayla
+print ('\n \nTaylor most requested')
+print ('\n \nOutput will print on screen')
+input('Press ENTER to continue or CTRL+C to quit...')
+import Most_Requested_File
+
