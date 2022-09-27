@@ -1,4 +1,4 @@
-file = open('backup.txt','r')
+file = open('log.txt','r')
 
 words = [" 303 ", " 304 ", " 302 ", " 300 ", " 301 ", " 305 ", " 306 ", " 307 ", " 308 "]
 count=0

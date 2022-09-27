@@ -28,24 +28,29 @@ FILE_NAME = './log.txt'
 
 def months():
     fh = open(FILE_NAME)
-    mon_array = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    y_array = ["1994","1995"]
-    p_mon_array = []
-    for year in y_array:
-        for month in mon_array:
-            reqs = 0
-            for line in fh:
-                if ("GET" in line) and (month+"/"+year+":" in line):
-                    reqs += 1
-                    
-            # Should the requests be split up by Year? Or should both "Oct" be combined?
-            #print("There were", reqs, "in", month, year)
-            if reqs > 0:
-                p_mon_array.append("There were "+str(reqs)+" requests in "+str(month)+", "+str(year))
+    i = 0
+    months = {}
+    for line in open(FILE_NAME):
+        if ("GET" in line) and ("1994" in line or "1995" in line):
+            # Extract the date from the request line
+            date = line[(line.index("[")+1):(line.index(":"))]
 
-    for res in p_mon_array:
-        print(res)
+            # Format the date in a way we can use it for getting the week as a number
+            conv = datetime.strptime(date, '%d/%b/%Y')
+
+            # Create dictionary entry from extracted date data.
+            month = "Number of requests in " + date[3:6] + ", " + str(conv.isocalendar().year)
+
+            # We will use week number to add up requests for a week.
+            if month in months:
+                months[month] += 1
+            else:
+                    months[month] = 1
+                
     fh.close()      # close the file when you're finished with it
+    for month in months:
+        print(month + ": " + str(months[month]))
+#months()
 
 def weeks():
     fh = open(FILE_NAME)
@@ -72,5 +77,3 @@ def weeks():
     fh.close()      # close the file when you're finished with it
     for week in weeks:
         print(week + ": " + str(weeks[week]))
-
-weeks()

@@ -1,4 +1,4 @@
-FILE_NAME = './backup.txt'
+FILE_NAME = './log.txt'
 
 fh = open(FILE_NAME)
 
